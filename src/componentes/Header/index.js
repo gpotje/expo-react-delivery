@@ -25,15 +25,6 @@ export default function Header() {
           
           <Box rounded="md" flexDir="row" alignItems="center">
             <Pressable>
-              <Icon
-                as={Feather}
-                name="bell"
-                size={7}
-                color="#000"
-                marginRight={4}
-              />
-            </Pressable>
-            <Pressable>
             <Avatar
                 source={{uri: "https://sujeitoprogramador.com/steve.png"}}
                 height={10}

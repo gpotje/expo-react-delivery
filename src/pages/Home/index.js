@@ -28,7 +28,7 @@ export default function Home() {
 
   return (
     
-      <Box flex={1}>
+      <Box flex={1} backgroundColor="#DBD6D6">
         
         <FlatList
             data={defaultData}
