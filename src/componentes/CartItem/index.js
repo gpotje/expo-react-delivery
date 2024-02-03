@@ -1,8 +1,9 @@
 import React, { Component, useState } from 'react';
 import {  Box,Button, Text } from "native-base";
 
-export default function CartItem({data,addAmount,removeAmount}){
+//export default function CartItem({data}){
 
+export default function CartItem({data,addAmount,removeAmount}){
     const [amount,setAmount] = useState(data?.amount)
 
     function handleIncrease(){
@@ -34,11 +35,11 @@ export default function CartItem({data,addAmount,removeAmount}){
             <Box flexDirection="row" _text={{ fontSize:15}}> R$:{data.preco}</Box>
         </Box>
         <Box flexDirection="row" justifyContent="space-between" justifyItems="center">
-          <Button backgroundColor="#FC0303" paddingRight={2} onPress={handleIncrease}> +</Button>
+          <Button backgroundColor="#FC0303" paddingRight={2}  onPress={handleIncrease}> +</Button>
 
-          <Text paddingX={2} fontSize={20} fontWeight={'bold'} >{amount}</Text>
+         <Text paddingX={2} fontSize={20} fontWeight={'bold'} >{amount}</Text> 
 
-          <Button backgroundColor="#FC0303" onPress={handleDecrease}>-</Button>
+          <Button backgroundColor="#FC0303"onPress={handleDecrease}>-</Button>
         </Box>
     </Box>
     

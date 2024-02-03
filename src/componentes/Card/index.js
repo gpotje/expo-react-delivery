@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 
 
 
-export default function Card({data}) {
+export default function Card({data, addToCart}) {
     return (
         <Box borderWidth={1} borderRadius={10} w="90%"
           marginX={2} borderColor="#000"
@@ -13,7 +13,7 @@ export default function Card({data}) {
           alignItems="center" justifyContent="space-between"
           marginY={1}
           >
-            <Pressable onPress={(data) => console.log(data.nome)}> 
+            <Pressable onPress={addToCart}> 
               <Box flexDirection="row"> 
                   <Image source={{
                           uri: data.imgBase64
