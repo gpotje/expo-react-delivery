@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from '../pages/Home';
+import Cart from '../pages/Cart/index';
 import Detalhes from '../pages/Detalhes';
 
 
@@ -20,9 +21,17 @@ export default function Routes(){
               name="Detalhes"
               component={Detalhes}
               options={{
-                  headerTitle: "Meu carinho"
-              }}
+                  headerTitle: "Detalhes",
+               }}
           />
+            <Stack.Screen
+                name="Cart"
+                component={Cart}
+                options={{
+                    headerTitle: "Meu carinho",
+                    headerStyle: { backgroundColor: '#FC0303' }
+                }}
+            />
       </Stack.Navigator>
   );
 }

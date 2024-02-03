@@ -5,6 +5,7 @@ import { Feather } from '@expo/vector-icons'
 
 import Card from "../../componentes/Card";
 import api from '../../services/api';
+import HeaderHome from "../../componentes/headerHome";
 
 
 export default function Home() {
@@ -31,35 +32,13 @@ export default function Home() {
 
   return (
     
-    <Box flex={1}  backgroundColor="#fafafa" paddingY={14}> 
-
-    
-    <Box flexDirection="row" justifyContent="space-between" alignItems="center" paddingX={5} >
-    <Text fontSize={24}>Delivery</Text>
-
-    <Pressable alignItems="center"  onPress={ () => navigation.navigate("Cart")}>
-        <Box alignItems="center" backgroundColor="#FC0303" justifyContent="center"
-        w={5} h={5} borderRadius={10} position="absolute" zIndex={99}
-        bottom={-2} left={-4} fontSize={11}
-        >1</Box>
-        <Box>
-          <Feather 
-          name='shopping-cart'
-          size={35}
-          color="#000"
-          />
-        </Box>
-    </Pressable>
-    </Box>  
-      
-   
+    <Box flex={1} backgroundColor="#C4C4C4"> 
+      <HeaderHome></HeaderHome>
         <FlatList
             data={defaultData}
             renderItem={({item})=> < Card data={item}/>}
             showsVerticalScrollIndicator={false}
           />
-      
-   
     </Box>
   )
 

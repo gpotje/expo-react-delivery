@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function Card({data}) {
     return (
-        <Box borderWidth={1} borderRadius={2} w="90%"
+        <Box borderWidth={1} borderRadius={10} w="90%"
           marginX={2} borderColor="#000"
           padding={2} flexDirection="row"
           alignItems="center" justifyContent="space-between"
