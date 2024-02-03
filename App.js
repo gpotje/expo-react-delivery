@@ -1,14 +1,20 @@
 import React from "react";
 import { NativeBaseProvider, Box } from "native-base";
+import { StatusBar } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 
-import Home from "./src/pages/Home";
-import Header from "./src/componentes/Header";
+import Routes from './src/routes'
+import CartProvider from './src/context/CartContext'
 
 export default function App() {
   return (
     <NativeBaseProvider>
-      <Header></Header>
-      <Home></Home>
+      <NavigationContainer>
+      <CartProvider>
+          <StatusBar backgroundColor="#Fafafa" />
+          <Routes />
+      </CartProvider>
+      </NavigationContainer>
     </NativeBaseProvider>
   );
 }
