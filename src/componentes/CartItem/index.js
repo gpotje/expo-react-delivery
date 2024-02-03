@@ -1,8 +1,6 @@
 import React, { Component, useState } from 'react';
 import {  Box,Button, Text } from "native-base";
 
-//export default function CartItem({data}){
-
 export default function CartItem({data,addAmount,removeAmount}){
     const [amount,setAmount] = useState(data?.amount)
 
@@ -22,9 +20,9 @@ export default function CartItem({data,addAmount,removeAmount}){
       setAmount(item => item - 1 )
   }
 
-  return (
 
-   <Box borderWidth={1} borderRadius={2} w="90%"
+  return (
+    <Box borderWidth={1} borderRadius={2} w="90%"
       marginX={2} borderColor="#000"
       padding={2} flexDirection="row"
       alignItems="center" justifyContent="space-between"
@@ -41,9 +39,9 @@ export default function CartItem({data,addAmount,removeAmount}){
 
           <Button backgroundColor="#FC0303"onPress={handleDecrease}>-</Button>
         </Box>
-    </Box>
-    
-    
-  );
+      </Box>
+  
+ )
+  
 
 }

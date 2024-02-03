@@ -5,7 +5,7 @@ import { CartContext } from '../../context/CartContext';
 import { useNavigation } from '@react-navigation/native';
 import Card from "../../componentes/Card";
 import api from '../../services/api';
-import HeaderHome from "../../componentes/headerHome";
+import HeaderHome from '../../componentes/HeaderHome/index';
 
 
 export default function Home() {
@@ -44,7 +44,7 @@ export default function Home() {
   return (
     
     <Box flex={1} backgroundColor="#C4C4C4"> 
-      <HeaderHome></HeaderHome>
+       <HeaderHome></HeaderHome> 
         <FlatList
             data={defaultData}
           // keyExtractor={ (item) => String(item.id) }
