@@ -1,9 +1,10 @@
-import {useContext,useState} from 'react';
-import { FlatList, Box,Text, Button  } from "native-base";
+import {useContext,useState,Alert} from 'react';
+import { FlatList, Box, Button  } from "native-base";
 import { CartContext } from '../../context/CartContext'
 import CartItem from '../../componentes/CartItem';
 import api from '../../services/api';
 import { useNavigation } from '@react-navigation/native';
+
 
 export default function Cart(){
 
@@ -16,38 +17,50 @@ export default function Cart(){
 
   let axiosConfig = {
     headers: {
-        'Authorization': 'Bearer bcb46e49-f2eb-4c4b-bca7-b56120cb0bdb'
+        'Authorization': 'Bearer d855dc40-0a81-461e-92c9-6d5aab529401'
     }
   };
    function FinalizarPedido(){
 
-    setProduct([]);
-    cart.forEach((element) =>{
-      console.log("element "+element)
-      product.push({
-        id:element.id,
-        nome: element.nome,
-        preco: element.preco,
-        quantProdutoCompra: element.amount,
-      })
-    });
-    
-    console.log(product)
-    var postData = {
-      "formaPagamento": "DINHEIRO",
-      "troco": 5.00,
-      "idUsuario":101,
-      "produtos": product
-  }
+    if(cart.length > 0){
+          setProduct([]);
+        cart.forEach((element) =>{
+          console.log("element "+element)
+          product.push({
+            id:element.id,
+            nome: element.nome,
+            preco: element.preco,
+            quantProdutoCompra: element.amount,
+          })
+        });
+        
+        console.log(product)
+        var postData = {
+          "formaPagamento": "DINHEIRO",
+          "troco": 5.00,
+          "idUsuario":101,
+          "produtos": product
+      }
   
-  api.post(`/pedido/create/`, postData, axiosConfig)
-    .then((res) => {
-      console.log("RESPONSE DATA: ", res.data);
-      console.log("RESPONSE STATUS: ", res.status);
-    })
-    .catch((err) => {
-      console.log("AXIOS ERROR: ", err);
-    })
+    api.post(`/pedido/create/`, postData, axiosConfig)
+        .then((res) => {
+          console.log("RESPONSE DATA: ", res.data);
+          console.log("RESPONSE STATUS: ", res.status);
+          alert("Seu pedido foi feito com sucesso")
+          setCart([])
+          navigation.navigate("Home")
+        })
+        .catch((error) => {
+            if (error.response.status === 401) {
+              alert("Sua sessão expirou faça login novamente")
+            }
+            alert("Error ",error.message)
+          })
+          
+  }else{
+          alert("Deve selecionar ao menos um item")
+        }
+    
 
 
   }

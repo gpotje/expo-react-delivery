@@ -1,6 +1,8 @@
 import React from "react"
 import { Box, Pressable,Image,Text } from "native-base";
 
+
+
 export default function Card({data, addToCart}) {
     return (
         <Box borderWidth={1} borderRadius={10} w="90%"
@@ -10,7 +12,7 @@ export default function Card({data, addToCart}) {
           marginY={1}
           >
             <Pressable onPress={addToCart}> 
-              <Box flexDirection="row"> 
+             <Box flexDirection="row"> 
                   <Image source={{
                           uri: data.imgBase64
                         }} alt="Alternate Text" size={100} borderRadius={10} />
@@ -19,6 +21,7 @@ export default function Card({data, addToCart}) {
                     <Text > R$:{data.preco}</Text>
                   </Box>
               </Box>
+              
             </Pressable>
         </Box>  
  )

@@ -1,14 +1,14 @@
 import React,{useCallback,useEffect,useState} from "react";
 import { Box,FlatList,Text } from "native-base";
 import api from '../../services/api';
-
+import CartPedido from "../../componentes/CartPedido";
 
 export default function Pedidos() {
   const [defaultData, setDefaultData] = useState({});
 
   const axiosConfig = {
     headers: {
-        'Authorization': 'Bearer d1743d15-e948-449d-bf0c-d510e0e7f89d'
+        'Authorization': 'Bearer d855dc40-0a81-461e-92c9-6d5aab529401'
     }
   };
 
@@ -17,12 +17,18 @@ export default function Pedidos() {
       await api
         .get("/pedido/findPedidoByIdUsuario/101",axiosConfig)
         .then((res) => {
+          console.log("RESPONSE DATA: ", res.data);
+          console.log("RESPONSE STATUS: ", res.status);
           setDefaultData(res.data);
          
         })
         .catch((err) => {
-          console.log(err);
-        });
+          if (err.response.status === 401) {
+            alert("Sua sessão expirou faça login novamente")
+            return;
+          }
+          alert("Error ",err.message)
+        })
     };
     getPedidos();
   }, []);
@@ -38,16 +44,8 @@ export default function Pedidos() {
         <FlatList
             data={defaultData}
           // keyExtractor={ (item) => String(item.id) }
-            renderItem={({item})=> (
-              <Box>
-                <Text>{item.status}</Text>
-                <Text>{item.valorPedido}</Text>
-                
-              </Box>
-            )
-          
-          }
-            showsVerticalScrollIndicator={false}
+          renderItem={({item})=> <Text>{item.status}</Text>}
+          showsVerticalScrollIndicator={false}
           />
 
    

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Box,Pressable,Text } from "native-base";
+import { Box,Pressable,Text,Menu,HamburgerIcon } from "native-base";
 import { Feather } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native';
 import { CartContext } from '../../context/CartContext'
@@ -13,7 +13,26 @@ export default function HeaderHome() {
   return (
     
     <Box backgroundColor="#FC0303" paddingY={14}> 
+                <Menu w="190"trigger={triggerProps => {
+                            <Pressable accessibilityLabel="More options menu" {...triggerProps}>
+                                      <HamburgerIcon />
+                            </Pressable>;
+                            }}>
+                        <Menu.Item>Arial</Menu.Item>
+                        <Menu.Item>Nunito Sans</Menu.Item>
+                        <Menu.Item isDisabled>Sofia</Menu.Item>
+                        <Menu.Item>Cookie</Menu.Item>
+                </Menu>
             <Box flexDirection="row" justifyContent="space-between" alignItems="center" paddingX={5} >
+                
+                             <Box>
+                                <Feather 
+                                name='shopping-cart'
+                                size={35}
+                                color="#000"
+                                />
+                            </Box>
+
                 <Text fontSize={30} fontWeight='bold'>Delivery</Text>
                      <Pressable alignItems="center"  onPress={ () => navigation.navigate("Cart")}>
                         
