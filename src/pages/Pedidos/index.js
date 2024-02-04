@@ -39,8 +39,8 @@ export default function Pedidos() {
   
   return (
     
-      <Box flex={1} >
-        
+      <Box flex={1} background="#C4C4C4" >
+    
         <FlatList
             data={defaultData}
           // keyExtractor={ (item) => String(item.id) }
