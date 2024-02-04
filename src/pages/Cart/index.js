@@ -2,12 +2,15 @@ import {useContext,useState} from 'react';
 import { FlatList, Box,Text, Button  } from "native-base";
 import { CartContext } from '../../context/CartContext'
 import CartItem from '../../componentes/CartItem';
-import axios from 'axios';
 import api from '../../services/api';
+import { useNavigation } from '@react-navigation/native';
+import Pedidos from '../pedidos';
 
 
 
 export default function Cart(){
+
+  const navigation = useNavigation();
 
   const {cart, addItemCart,removeItemCart,setCart } = useContext(CartContext)
   const[product,setProduct] = useState([]);
@@ -16,7 +19,7 @@ export default function Cart(){
 
   let axiosConfig = {
     headers: {
-        'Authorization': 'Bearer 6eba242a-0b41-4e87-bef3-ee5d8080faad'
+        'Authorization': 'Bearer bcb46e49-f2eb-4c4b-bca7-b56120cb0bdb'
     }
   };
    function FinalizarPedido(){
@@ -28,7 +31,7 @@ export default function Cart(){
         id:element.id,
         nome: element.nome,
         preco: element.preco,
-        quant: element.amount,
+        quantProdutoCompra: element.amount,
       })
     });
     
@@ -40,14 +43,14 @@ export default function Cart(){
       "produtos": product
   }
   
-  // api.post(`/pedido/create/`, postData, axiosConfig)
-  //   .then((res) => {
-  //     console.log("RESPONSE DATA: ", res.data);
-  //     console.log("RESPONSE STATUS: ", res.status);
-  //   })
-  //   .catch((err) => {
-  //     console.log("AXIOS ERROR: ", err);
-  //   })
+  api.post(`/pedido/create/`, postData, axiosConfig)
+    .then((res) => {
+      console.log("RESPONSE DATA: ", res.data);
+      console.log("RESPONSE STATUS: ", res.status);
+    })
+    .catch((err) => {
+      console.log("AXIOS ERROR: ", err);
+    })
 
 
   }
@@ -69,8 +72,9 @@ export default function Cart(){
        
      )}/>
 
-      <Button backgroundColor="#FC0303"onPress={FinalizarPedido}>Finalizar pedido</Button>
+      <Button backgroundColor="#FC0303"onPress={FinalizarPedido} >Finalizar pedido</Button>
 
+      <Button backgroundColor="#FC0303"onPress={ () => navigation.navigate("Pedidos") }>verificar pedidos</Button>
    </Box>
   );
 

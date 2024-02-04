@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from '../pages/Home';
 import Cart from '../pages/Cart/index';
 import Detalhes from '../pages/Detalhes';
+import Pedidos from '../pages/pedidos';
 
 
 const Stack = createNativeStackNavigator();
@@ -29,6 +30,14 @@ export default function Routes(){
                 component={Cart}
                 options={{
                     headerTitle: "Meu carinho",
+                    headerStyle: { backgroundColor: '#FC0303' }
+                }}
+            />
+             <Stack.Screen
+                name="Pedidos"
+                component={Pedidos}
+                options={{
+                    headerTitle: "Meu Pedidos",
                     headerStyle: { backgroundColor: '#FC0303' }
                 }}
             />
