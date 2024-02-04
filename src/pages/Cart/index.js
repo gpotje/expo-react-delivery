@@ -1,56 +1,53 @@
-import {useContext} from 'react';
+import {useContext,useState} from 'react';
 import { FlatList, Box,Text, Button  } from "native-base";
 import { CartContext } from '../../context/CartContext'
 import CartItem from '../../componentes/CartItem';
 import axios from 'axios';
+import api from '../../services/api';
 
 
 
 export default function Cart(){
 
-  const {cart, addItemCart,removeItemCart } = useContext(CartContext)
+  const {cart, addItemCart,removeItemCart,setCart } = useContext(CartContext)
+  const[product,setProduct] = useState([]);
+
+  let somaPedido = 0;
 
   let axiosConfig = {
     headers: {
-        'Authorization': 'Bearer 4901fc0c-0e7d-4bcd-bbff-4cd561ed38b3'
+        'Authorization': 'Bearer 6eba242a-0b41-4e87-bef3-ee5d8080faad'
     }
   };
-
-
-  var postData = {
-     "formaPagamento": "DINHEIRO",
-      "troco": 33.00,
-      "idUsuario":101,
-      "valorPedido": "",
-      "produtos": [
-          {
-                  "id": 101,
-                  "nome": "HOT DOG DORITOS",
-                  "preco": 10.00
-              },
-              {
-                  "id": 102,
-                  "nome": "BEIRUTE DE CALABRESA",
-                  "preco": 11.00
-              },
-              {
-                  "id": 103,
-                  "nome": "X-BACON",
-                  "preco": 12.00
-              }
-      ]
-  
-  };
-
    function FinalizarPedido(){
-    axios.post(`http://192.168.1.6:8080/api/v1/pedido/create/`, postData, axiosConfig)
-    .then((res) => {
-      console.log("RESPONSE DATA: ", res.data);
-      console.log("RESPONSE STATUS: ", res.status);
-    })
-    .catch((err) => {
-      console.log("AXIOS ERROR: ", err);
-    })
+
+    setProduct([]);
+    cart.forEach((element) =>{
+      console.log("element "+element)
+      product.push({
+        id:element.id,
+        nome: element.nome,
+        preco: element.preco,
+        quant: element.amount,
+      })
+    });
+    
+    console.log(product)
+    var postData = {
+      "formaPagamento": "DINHEIRO",
+      "troco": 5.00,
+      "idUsuario":101,
+      "produtos": product
+  }
+  
+  // api.post(`/pedido/create/`, postData, axiosConfig)
+  //   .then((res) => {
+  //     console.log("RESPONSE DATA: ", res.data);
+  //     console.log("RESPONSE STATUS: ", res.status);
+  //   })
+  //   .catch((err) => {
+  //     console.log("AXIOS ERROR: ", err);
+  //   })
 
 
   }

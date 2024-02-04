@@ -56,7 +56,8 @@ function CartProvider({ children }){
             value={{
                 cart,
                 addItemCart,
-                removeItemCart
+                removeItemCart,
+                setCart
             }}
         >
             {children}
