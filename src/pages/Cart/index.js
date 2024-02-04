@@ -4,7 +4,7 @@ import { CartContext } from '../../context/CartContext'
 import CartItem from '../../componentes/CartItem';
 import api from '../../services/api';
 import { useNavigation } from '@react-navigation/native';
-
+import {AsyncStorage} from 'react-native';
 
 export default function Cart(){
 
@@ -13,16 +13,16 @@ export default function Cart(){
   const {cart, addItemCart,removeItemCart,setCart } = useContext(CartContext)
   const[product,setProduct] = useState([]);
 
-  let somaPedido = 0;
-
   let axiosConfig = {
     headers: {
         'Authorization': 'Bearer 4c1b9182-43dd-43cf-8b26-09592f94f137'
     }
   };
+
    function FinalizarPedido(){
 
     if(cart.length > 0){
+
           setProduct([]);
         cart.forEach((element) =>{
           console.log("element "+element)
@@ -43,7 +43,7 @@ export default function Cart(){
       }
   
     api.post(`/pedido/create/`, postData, axiosConfig)
-        .then((res) => {
+      .then((res) => {
           console.log("RESPONSE DATA: ", res.data);
           console.log("RESPONSE STATUS: ", res.status);
           alert("Seu pedido foi feito com sucesso")
@@ -52,7 +52,9 @@ export default function Cart(){
         })
         .catch((error) => {
             if (error.response.status === 401) {
+             //navigation.navigate("Login")
               alert("Sua sessão expirou faça login novamente")
+             return
             }
             alert("Error ",error.message)
           })

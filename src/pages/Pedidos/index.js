@@ -25,6 +25,7 @@ export default function Pedidos() {
         .catch((err) => {
           if (err.response.status === 401) {
             alert("Sua sessão expirou faça login novamente")
+            navigation.navigate("Login")
             return;
           }
           alert("Error ",err.message)
