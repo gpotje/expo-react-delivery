@@ -1,8 +1,6 @@
 import React,{useCallback,useEffect,useState} from "react";
 import { Box,FlatList,Text } from "native-base";
 import api from '../../services/api';
-import { useNavigation } from '@react-navigation/native';
-
 
 
 export default function Pedidos() {
@@ -44,15 +42,7 @@ export default function Pedidos() {
               <Box>
                 <Text>{item.status}</Text>
                 <Text>{item.valorPedido}</Text>
-                {/* <FlatList 
-                  data={item.produtos}
-                  keyExtractor={ (item2) => String(item2.id) }
-                  renderItem={({item2})=> (
-                  <Box>
-                    <Text>{item2.nome}</Text>
-                  </Box>
-                  )}
-                /> */}
+                
               </Box>
             )
           

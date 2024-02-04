@@ -4,9 +4,6 @@ import { CartContext } from '../../context/CartContext'
 import CartItem from '../../componentes/CartItem';
 import api from '../../services/api';
 import { useNavigation } from '@react-navigation/native';
-import Pedidos from '../pedidos';
-
-
 
 export default function Cart(){
 

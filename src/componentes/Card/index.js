@@ -1,9 +1,5 @@
 import React from "react"
 import { Box, Pressable,Image,Text } from "native-base";
-import Detalhes from "../../pages/Detalhes";
-import { useNavigation } from '@react-navigation/native';
-
-
 
 export default function Card({data, addToCart}) {
     return (
