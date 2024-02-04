@@ -17,7 +17,7 @@ export default function Cart(){
 
   let axiosConfig = {
     headers: {
-        'Authorization': 'Bearer d855dc40-0a81-461e-92c9-6d5aab529401'
+        'Authorization': 'Bearer 4c1b9182-43dd-43cf-8b26-09592f94f137'
     }
   };
    function FinalizarPedido(){

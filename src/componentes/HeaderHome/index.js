@@ -13,27 +13,9 @@ export default function HeaderHome() {
   return (
     
     <Box backgroundColor="#FC0303" paddingY={14}> 
-                <Menu w="190"trigger={triggerProps => {
-                            <Pressable accessibilityLabel="More options menu" {...triggerProps}>
-                                      <HamburgerIcon />
-                            </Pressable>;
-                            }}>
-                        <Menu.Item>Arial</Menu.Item>
-                        <Menu.Item>Nunito Sans</Menu.Item>
-                        <Menu.Item isDisabled>Sofia</Menu.Item>
-                        <Menu.Item>Cookie</Menu.Item>
-                </Menu>
-            <Box flexDirection="row" justifyContent="space-between" alignItems="center" paddingX={5} >
                 
-                             <Box>
-                                <Feather 
-                                name='shopping-cart'
-                                size={35}
-                                color="#000"
-                                />
-                            </Box>
-
-                <Text fontSize={30} fontWeight='bold'>Delivery</Text>
+            <Box flexDirection="row" justifyContent="space-between" alignItems="center" paddingX={5} >
+                 <Text fontSize={30} fontWeight='bold'>Delivery</Text>
                      <Pressable alignItems="center"  onPress={ () => navigation.navigate("Cart")}>
                         
                         <Box alignItems="center" backgroundColor="#FCED03" justifyContent="center"

@@ -6,7 +6,7 @@ import { Box, Pressable,Image,Text } from "native-base";
 export default function Card({data, addToCart}) {
     return (
         <Box borderWidth={1} borderRadius={10} w="90%"
-          marginX={2} borderColor="#000"
+          marginX={2} borderColor="#FC0303"
           padding={2} flexDirection="row"
           alignItems="center" justifyContent="space-between"
           marginY={1}

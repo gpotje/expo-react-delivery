@@ -23,7 +23,7 @@ export default function CartItem({data,addAmount,removeAmount}){
 
   return (
     <Box borderWidth={1} borderRadius={2} w="90%"
-      marginX={2} borderColor="#000"
+      marginX={2} borderColor="#FC0303"
       padding={2} flexDirection="row"
       alignItems="center" justifyContent="space-between"
       marginY={1}
