@@ -8,13 +8,13 @@ function AuthProvider({ children }){
 
     const [token,setToken] = useState('')
 
-     function signIn() {
+     function signIn(username, password) {
         console.log("loginFunc")
             api.post(
                 "/oauth/token",
                 new URLSearchParams({
-                username: "gpot",
-                password: "abc123",
+                username: username,
+                password: password,
                 grant_type: "password",
                 }),
                     {

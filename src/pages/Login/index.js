@@ -5,7 +5,6 @@ import { AuthContext } from "../../context/auth";
 
 
 export default function Login() {
-  const [token, setToken] = useState({});
   const [login, setLogin] = useState('');
   const [senha, setSenha] = useState('');
   const navigation = useNavigation();
@@ -13,7 +12,9 @@ export default function Login() {
   const { signIn } = useContext(AuthContext);
 
      async function loginFunc (){
-        await signIn()
+        await signIn(login,senha)
+        setLogin('')
+        setSenha('')
       }
   
   
