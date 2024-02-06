@@ -39,8 +39,18 @@ npx expo install expo-linear-gradient<br/>
 # criar apk
 https://docs.expo.dev/build-reference/apk/
 
+"preview": {
+      "android": {
+        "buildType": "apk"
+      }
+    },
+
+eas build -p android --profile preview
 
 # criar build 
 https://docs.expo.dev/build/setup/
 eas login
 eas build --platform android
+
+# version
+https://docs.expo.dev/eas-update/runtime-versions/#nativeversion-runtime-version-policy
