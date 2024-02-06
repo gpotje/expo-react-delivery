@@ -3,12 +3,11 @@ import { Box,Pressable,Text,Menu,HamburgerIcon } from "native-base";
 import { Feather,FontAwesome  } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native';
 import { CartContext } from '../../context/CartContext'
-import Login from '../../pages/Login';
 
 
 export default function HeaderHome() {
 
-  const { cart,addItemCart } = useContext(CartContext)
+  const { cart } = useContext(CartContext)
 
   const navigation = useNavigation();
 

@@ -5,15 +5,18 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import Routes from './src/routes'
 import CartProvider from './src/context/CartContext'
+import AuthProvider from "./src/context/auth";
 
 export default function App() {
   return (
     <NativeBaseProvider>
       <NavigationContainer>
-      <CartProvider>
-          <StatusBar backgroundColor="#Fafafa" />
+      <AuthProvider>
+        <CartProvider>
+         <StatusBar backgroundColor="#Fafafa" />
           <Routes />
-      </CartProvider>
+        </CartProvider>
+      </AuthProvider>
       </NavigationContainer>
     </NativeBaseProvider>
   );

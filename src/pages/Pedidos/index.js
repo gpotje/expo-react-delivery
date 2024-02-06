@@ -1,21 +1,21 @@
-import React,{useCallback,useEffect,useState} from "react";
+import React,{useCallback,useEffect,useState,useContext} from "react";
 import { Box,FlatList,Text } from "native-base";
 import api from '../../services/api';
 import CartPedido from "../../componentes/CartPedido";
+import { AuthContext } from "../../context/auth";
 
 export default function Pedidos() {
   const [defaultData, setDefaultData] = useState({});
-
-  const axiosConfig = {
-    headers: {
-        'Authorization': 'Bearer 4c1b9182-43dd-43cf-8b26-09592f94f137'
-    }
-  };
+  const { signIn,token } = useContext(AuthContext);
+ 
 
   const pedidos = useCallback(() => {
+
     const getPedidos = async () => {
       await api
-        .get("/pedido/findPedidoByIdUsuario/101",axiosConfig)
+        .get("/pedido/findPedidoByIdUsuario/101",{ headers: {
+          'Authorization': `Bearer ${token}`
+      }})
         .then((res) => {
           console.log("RESPONSE DATA: ", res.data);
           console.log("RESPONSE STATUS: ", res.status);
