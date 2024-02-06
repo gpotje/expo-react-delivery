@@ -34,3 +34,13 @@ expo install react-native-safe-area-context@3.3.2<br/>
 
 # gradiente
 npx expo install expo-linear-gradient<br/>
+
+
+# criar apk
+https://docs.expo.dev/build-reference/apk/
+
+
+# criar build 
+https://docs.expo.dev/build/setup/
+eas login
+eas build --platform android
