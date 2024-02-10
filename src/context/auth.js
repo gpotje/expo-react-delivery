@@ -40,6 +40,38 @@ function AuthProvider({ children }){
             });
     }
 
+    function create() {
+        // console.log("createUser")
+            // api.put(
+            //     "usuario/replace-senha",
+            //     new URLSearchParams({
+            //     username: username,
+            //     password: password,
+            //     grant_type: "password",
+            //     }),
+            //         {
+            //         headers: {
+            //             Accept: "application/json",
+            //             "Content-Type": "application/x-www-form-urlencoded",
+            //             "Authorization": "Basic ZGVsaXZlcnk6MTIz"
+            //         }
+            //     }
+            // ) .then((res) => {
+            //     alert("Obg por se autenticar")
+            //     setToken(res.data["access_token"])
+            //     console.log("token ",token)
+            // })
+            // .catch((err) => {
+            //     if (err.code === "ERR_NETWORK") {
+            //     alert(
+            //         "Verifique sua conexão de rede, ou servidor está offline."
+            //     )
+            //     }
+            //     console.log(err.code);
+                
+            // });
+    }
+
     return(
         <AuthContext.Provider
             value={{

@@ -16,16 +16,21 @@ export default function HeaderHome() {
     <Box backgroundColor="#FC0303" paddingY={14}> 
                 
             <Box flexDirection="row" justifyContent="space-between" alignItems="center" paddingX={5} >
-                   <Pressable  onPress={ () => navigation.navigate("Login")}>
-                            <Box>
-                              <Feather 
-                                name='user'
-                                size={30}
-                                color="#000"
-                                />
-                            </Box>
-                    </Pressable>
-                 <Text fontSize={30} fontWeight='bold'>Delivery</Text>
+                  <Menu w="190" trigger={triggerProps => {
+                            return <Pressable {...triggerProps}>
+                                        <Feather 
+                                      name='menu'
+                                      size={30}
+                                      color="#000"
+                                      />
+                                  </Pressable>;
+                          }}>
+                          <Menu.Item onPress={ () => navigation.navigate("Login")}>Login</Menu.Item>
+                          <Menu.Item onPress={ () => navigation.navigate("Pedidos")}>acampanhar pedido</Menu.Item>
+                              
+                              
+                  </Menu>
+                  <Text fontSize={30} fontWeight='bold'>Delivery</Text>
                     
                      <Pressable alignItems="center"  onPress={ () => navigation.navigate("Cart")}>
                         

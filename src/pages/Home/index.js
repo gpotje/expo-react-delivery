@@ -26,7 +26,7 @@ export default function Home() {
       await api
         .get("/produto/all")
         .then((res) => {
-          setDefaultData(res.data);
+          setDefaultData(res.data.content);
          
         })
         .catch((err) => {

@@ -4,8 +4,6 @@ import { Box, Text, Heading, VStack, FormControl, Input, Link, Button, HStack, C
 
 
 export default function Cadastro() {
-  
-  
 
   return (
     

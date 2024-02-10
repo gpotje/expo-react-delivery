@@ -66,27 +66,28 @@ export default function Cart(){
   
 
   return (
-    <Box flex={1} paddingY={5} paddingX={5} background="#C4C4C4" > 
+
+      <Box flex={1} paddingY={5} paddingX={5} background="#C4C4C4" > 
       
-    <FlatList
-     data={cart}
-     showsHorizontalScrollIndicator={false}
-     keyExtractor={(item) => String(item.id)}
-     renderItem={({item}) => (
-       <CartItem  
-         data={item}
-         addAmount={ () => addItemCart(item)}
-         removeAmount={ () => removeItemCart(item)}
-       />
-       
-     )}/>
-
-      <Box flexDirection='row'  justifyContent='space-between'>
-        <Button backgroundColor="#FC0303"onPress={FinalizarPedido} w={'40%'} >Finalizar pedido</Button>
-        <Button backgroundColor="#FC0303"onPress={ () => navigation.navigate("Pedidos") }  w={'40%'}>Verificar pedidos</Button>
-      </Box>
-
-   </Box>
+      <FlatList
+       data={cart}
+       showsHorizontalScrollIndicator={false}
+       keyExtractor={(item) => String(item.id)}
+       renderItem={({item}) => (
+         <CartItem  
+           data={item}
+           addAmount={ () => addItemCart(item)}
+           removeAmount={ () => removeItemCart(item)}
+         />
+         
+       )}/>
+  
+        <Box flexDirection='row'  justifyContent='space-between'>
+          <Button backgroundColor="#FC0303"onPress={FinalizarPedido} w={'100%'} >Finalizar pedido</Button>
+        </Box>
+  
+     </Box>
+   
   );
 
 }
