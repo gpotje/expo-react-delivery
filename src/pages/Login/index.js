@@ -50,7 +50,7 @@ export default function Login() {
                 }}>
                    Eu sou um novo Usuario.{" "}
                   </Text>
-                  <Link _text={{color: "indigo.500",fontWeight: "medium",fontSize: "sm"}} onPress={() => navigation.navigate("Cadastro")} >
+                  <Link _text={{color: "indigo.500",fontWeight: "medium",fontSize: "sm"}} onPress={() => navigation.navigate("CadastroUsuario")} >
                     Cadastrar-se
                   </Link>
                 </HStack>

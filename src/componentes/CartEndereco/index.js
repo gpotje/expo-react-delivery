@@ -18,10 +18,10 @@ export default function CartEndereco({data}){
             <Text flexDirection="row" fontWeight='bold'>Cep: {data?.cep}</Text>
             <Text flexDirection="row" fontWeight='bold'>Tel1: {data?.tel1}</Text>
             <Text flexDirection="row" fontWeight='bold'>Cidade: {data?.cidade}</Text>
-            <Switch
-                  colorScheme="secondary"
-                 value={true}
-              />
+              <Box flexDirection="row" >
+                {/* <Text flexDirection="row" fontWeight='bold' fontSize={15}>Endereço Ativo: </Text> */}
+                <Switch colorScheme="secondary" value={data?.ativo} />
+              </Box>
         </Box>
         
       </Box>

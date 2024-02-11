@@ -1,5 +1,5 @@
 import React,{useCallback,useEffect,useState,useContext} from "react";
-import { Box,FlatList } from "native-base";
+import { Box,FlatList,Button } from "native-base";
 import CartEndereco from "../../componentes/CartEndereco";
 import api from '../../services/api';
 import { AuthContext } from "../../context/auth"
@@ -41,16 +41,16 @@ export default function Endereco() {
   
   return (
     
-      <Box flex={1} >
+      <Box flex={1} paddingY={5} paddingX={5} background="#C4C4C4">
         
-        <FlatList
+        <FlatList 
             data={defaultData}
           //  keyExtractor={ (item) => String(item.id) }
             renderItem={({item})=> < CartEndereco data={item}/>}
             showsVerticalScrollIndicator={false}
           />
 
-   
+    <Button backgroundColor="#FC0303" onPress={() => navigation.navigate("CadastraEndereco") } >Novo Endereco </Button>
     </Box>
   )
 

@@ -5,8 +5,10 @@ import Cart from '../pages/Cart/index';
 import Detalhes from '../pages/Detalhes';
 import Pedidos from '../pages/Pedidos';
 import Login from'../pages/Login';
-import Cadastro from '../pages/Cadastro';
+import Cadastro from '../pages/Login/CadastroUsuario';
 import Endereco from '../pages/Endereco';
+import CadastraEndereco from '../pages/Endereco/CadastraEndereco';
+import CadastroUsuario from '../pages/Login/CadastroUsuario';
 
 
 const Stack = createNativeStackNavigator();
@@ -54,8 +56,8 @@ export default function Routes(){
                 
             />
             <Stack.Screen
-                name="Cadastro"
-                component={Cadastro}
+                name="CadastroUsuario"
+                component={CadastroUsuario}
                 options={{
                     headerTitle: "Cadastro",
                     headerStyle: { backgroundColor: '#FC0303' }
@@ -71,6 +73,16 @@ export default function Routes(){
                 }}
                 
             />
+            <Stack.Screen
+                name="CadastraEndereco"
+                component={CadastraEndereco}
+                options={{
+                    headerTitle: "Cadastra Endereco",
+                    headerStyle: { backgroundColor: '#FC0303' }
+                }}
+                
+            />
+            
       </Stack.Navigator>
   );
 }

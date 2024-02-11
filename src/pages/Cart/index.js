@@ -80,9 +80,9 @@ export default function Cart(){
          
        )}/>
   
-        <Box flexDirection='row'  justifyContent='space-between'>
-          <Button backgroundColor="#FC0303"onPress={FinalizarPedido} w={'100%'} >Finalizar pedido</Button>
-        </Box>
+        
+          <Button backgroundColor="#FC0303"onPress={FinalizarPedido}  >Finalizar pedido</Button>
+        
   
      </Box>
    
