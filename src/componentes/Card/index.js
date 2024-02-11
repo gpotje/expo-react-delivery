@@ -19,7 +19,7 @@ export default function Card({data, addToCart}) {
                   <Box>
                     <Text fontWeight='bold'> {data.nome}</Text>
                     <Text > R$:{data.preco}</Text>
-                    <Text bold isTruncated maxW={250}>{data.descricao}</Text>
+                  
                   </Box>
               </Box>
               

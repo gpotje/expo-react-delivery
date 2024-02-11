@@ -24,7 +24,7 @@ export default function Home() {
   const produtos = useCallback(() => {
     const getProdutos = async () => {
       await api
-        .get("/produto/all")
+        .get("/produto/all?size=10&sort=nome")
         .then((res) => {
           setDefaultData(res.data.content);
          
@@ -47,7 +47,7 @@ export default function Home() {
        <HeaderHome></HeaderHome> 
         <FlatList
             data={defaultData}
-          // keyExtractor={ (item) => String(item.id) }
+           keyExtractor={ (item) => String(item.id) }
             renderItem={({item})=> < Card data={item} addToCart={() => handleAddcart(item)}/>}
             showsVerticalScrollIndicator={false}
           />

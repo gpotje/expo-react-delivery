@@ -3,13 +3,11 @@ import { FlatList, Box, Button  } from "native-base";
 import { CartContext } from '../../context/CartContext'
 import CartItem from '../../componentes/CartItem';
 import api from '../../services/api';
-import { useNavigation } from '@react-navigation/native';
 import { AuthContext } from "../../context/auth"
 
 
 export default function Cart(){
-  const { signIn,token } = useContext(AuthContext);
-  const navigation = useNavigation();
+  const { navigation,token } = useContext(AuthContext);
 
   const {cart, addItemCart,removeItemCart,setCart } = useContext(CartContext)
   const[product,setProduct] = useState([]);

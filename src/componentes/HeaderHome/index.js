@@ -26,7 +26,8 @@ export default function HeaderHome() {
                                   </Pressable>;
                           }}>
                           <Menu.Item onPress={ () => navigation.navigate("Login")}>Login</Menu.Item>
-                          <Menu.Item onPress={ () => navigation.navigate("Pedidos")}>acampanhar pedido</Menu.Item>
+                          <Menu.Item onPress={ () => navigation.navigate("Pedidos")}>Acompanhar pedido</Menu.Item>
+                          <Menu.Item onPress={ () => navigation.navigate("Endereco")}>Endereco</Menu.Item>
                               
                               
                   </Menu>

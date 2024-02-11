@@ -6,6 +6,7 @@ import Detalhes from '../pages/Detalhes';
 import Pedidos from '../pages/Pedidos';
 import Login from'../pages/Login';
 import Cadastro from '../pages/Cadastro';
+import Endereco from '../pages/Endereco';
 
 
 const Stack = createNativeStackNavigator();
@@ -57,6 +58,15 @@ export default function Routes(){
                 component={Cadastro}
                 options={{
                     headerTitle: "Cadastro",
+                    headerStyle: { backgroundColor: '#FC0303' }
+                }}
+                
+            />
+            <Stack.Screen
+                name="Endereco"
+                component={Endereco}
+                options={{
+                    headerTitle: "Endereco Usuario",
                     headerStyle: { backgroundColor: '#FC0303' }
                 }}
                 

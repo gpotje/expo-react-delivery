@@ -1,10 +1,11 @@
 import React,{createContext,useState} from "react";
 import api from "../services/api";
-
+import { useNavigation } from '@react-navigation/native';
 
 export const AuthContext = createContext({});
 
 function AuthProvider({ children }){
+    const navigation = useNavigation();
 
     const [token,setToken] = useState('')
 
@@ -76,7 +77,8 @@ function AuthProvider({ children }){
         <AuthContext.Provider
             value={{
                 signIn,
-                token
+                token,
+                navigation
             }}
         >
             {children}

@@ -1,24 +1,23 @@
 import React,{useCallback,useEffect,useState,useContext} from "react";
-import { Box,FlatList,Text } from "native-base";
+import { Box,FlatList } from "native-base";
+import CartEndereco from "../../componentes/CartEndereco";
 import api from '../../services/api';
-import CartPedido from "../../componentes/CartPedido";
-import { AuthContext } from "../../context/auth";
+import { AuthContext } from "../../context/auth"
 
-export default function Pedidos() {
+
+
+export default function Endereco() {
   const [defaultData, setDefaultData] = useState({});
+
   const { navigation,token } = useContext(AuthContext);
- 
 
-  const pedidos = useCallback(() => {
-
-    const getPedidos = async () => {
+  const endereco = useCallback(() => {
+    const getEndereco = async () => {
       await api
-        .get("/pedido/findPedidoByIdUsuario/101",{ headers: {
+        .get("/endereco/listByIdUsuario/100",{ headers: {
           'Authorization': `Bearer ${token}`
       }})
         .then((res) => {
-          console.log("RESPONSE DATA: ", res.data);
-          console.log("RESPONSE STATUS: ", res.status);
           setDefaultData(res.data);
          
         })
@@ -31,21 +30,23 @@ export default function Pedidos() {
           alert("Error ",err.message)
         })
     };
-    getPedidos();
+    getEndereco();
   }, []);
 
   useEffect(() => {
-    pedidos();
-  }, [pedidos]);
+    endereco();
+  }, [endereco]);
+
+
   
   return (
     
-      <Box flex={1} background="#C4C4C4" >
-    
+      <Box flex={1} >
+        
         <FlatList
             data={defaultData}
-          // keyExtractor={ (item) => String(item.id) }
-            renderItem={({item})=> < CartPedido data={item}/>}
+          //  keyExtractor={ (item) => String(item.id) }
+            renderItem={({item})=> < CartEndereco data={item}/>}
             showsVerticalScrollIndicator={false}
           />
 
@@ -55,5 +56,3 @@ export default function Pedidos() {
 
 
 }
-
-             

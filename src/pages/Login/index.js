@@ -12,9 +12,10 @@ export default function Login() {
   const { signIn } = useContext(AuthContext);
 
      async function loginFunc (){
-        await signIn(login,senha)
+        await signIn("gpot","abc123")
         setLogin('')
         setSenha('')
+        navigation.navigate("Endereco")
       }
   
   
