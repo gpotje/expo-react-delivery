@@ -15,7 +15,7 @@ export default function Login() {
         await signIn("gpot","abc123")
         setLogin('')
         setSenha('')
-        navigation.navigate("Endereco")
+       
       }
   
   

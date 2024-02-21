@@ -8,13 +8,14 @@ function AuthProvider({ children }){
     const navigation = useNavigation();
 
     const [token,setToken] = useState('')
+    const [usuarioLogado,setUsuarioLogado] = useState('')
 
      function signIn(username, password) {
-        console.log("loginFunc")
+       console.log("loginFunc")
             api.post(
                 "/oauth/token",
                 new URLSearchParams({
-                username: username,
+                username:username,
                 password: password,
                 grant_type: "password",
                 }),
@@ -28,7 +29,8 @@ function AuthProvider({ children }){
             ) .then((res) => {
                 alert("Obg por se autenticar")
                 setToken(res.data["access_token"])
-                
+                findUsuarioLogado(username)
+
             })
             .catch((err) => {
                 if (err.code === "ERR_NETWORK") {
@@ -36,8 +38,21 @@ function AuthProvider({ children }){
                     "Verifique sua conexão de rede, ou servidor está offline."
                 )
                 }
+                console.log(err);
                 console.log(err.code);
                 
+            });
+    }
+
+    async function findUsuarioLogado(username) {
+       await api.get("/usuario/listByUserName/"+username ,{ headers: {
+            'Authorization': `Bearer ${token}`}})
+            .then((res) => {
+                setUsuarioLogado(res.data);
+                console.log(usuarioLogado.id)
+            })
+            .catch((err) => {
+                console.log("findUsuarioLogado"+err);
             });
     }
 
@@ -48,7 +63,8 @@ function AuthProvider({ children }){
             value={{
                 signIn,
                 token,
-                navigation
+                navigation,
+                usuarioLogado
             }}
         >
             {children}

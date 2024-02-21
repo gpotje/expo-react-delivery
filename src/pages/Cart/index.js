@@ -7,7 +7,7 @@ import { AuthContext } from "../../context/auth"
 
 
 export default function Cart(){
-  const { navigation,token } = useContext(AuthContext);
+  const { navigation,token,usuarioLogado } = useContext(AuthContext);
 
   const {cart, addItemCart,removeItemCart,setCart } = useContext(CartContext)
   const[product,setProduct] = useState([]);
@@ -31,7 +31,7 @@ export default function Cart(){
         var postData = {
           "formaPagamento": "DINHEIRO",
           "troco": 5.00,
-          "idUsuario":101,
+          "idUsuario":usuarioLogado.id,
           "produtos": product
       }
   

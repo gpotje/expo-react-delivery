@@ -9,12 +9,12 @@ import { AuthContext } from "../../context/auth"
 export default function Endereco() {
   const [defaultData, setDefaultData] = useState({});
 
-  const { navigation,token } = useContext(AuthContext);
+  const { navigation,token,usuarioLogado } = useContext(AuthContext);
 
   const endereco = useCallback(() => {
     const getEndereco = async () => {
       await api
-        .get("/endereco/listByIdUsuario/100",{ headers: {
+        .get("/endereco/listByIdUsuario/"+usuarioLogado.id,{ headers: {
           'Authorization': `Bearer ${token}`
       }})
         .then((res) => {
@@ -22,6 +22,7 @@ export default function Endereco() {
          
         })
         .catch((err) => {
+          console.log(err)
           if (err.response.status === 401) {
             alert("Sua sessão expirou faça login novamente")
             navigation.navigate("Login")

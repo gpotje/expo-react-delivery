@@ -6,14 +6,14 @@ import { AuthContext } from "../../context/auth";
 
 export default function Pedidos() {
   const [defaultData, setDefaultData] = useState({});
-  const { navigation,token } = useContext(AuthContext);
+  const { navigation,token,usuarioLogado } = useContext(AuthContext);
  
 
   const pedidos = useCallback(() => {
 
     const getPedidos = async () => {
       await api
-        .get("/pedido/findPedidoByIdUsuario/101",{ headers: {
+        .get("/pedido/findPedidoByIdUsuario/"+usuarioLogado.id,{ headers: {
           'Authorization': `Bearer ${token}`
       }})
         .then((res) => {
