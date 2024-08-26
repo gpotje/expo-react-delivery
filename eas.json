@@ -3,6 +3,10 @@
     "version": ">= 7.1.0"
   },
   "build": {
+    "production": {
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://api.production.com"
+    },
     "development": {
       "developmentClient": true,
       "distribution": "internal"
